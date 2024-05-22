@@ -89,7 +89,7 @@ const Home = ({ token, atual, audio, setAtual, setAudio }) => {
                         {/* Header da aplicação */}
                         <ContainerHeader>
                           <ImageProfile source={require("../../../assets/profile.jpg")}/>
-                          <Title accessibilityLabel="title-head">Good morning</Title>
+                          <Title accessibilityLabel="title-head">Good Morning</Title>
                         </ContainerHeader>
               
                         <SubTitle>Explore nossas playlists</SubTitle>

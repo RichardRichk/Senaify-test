@@ -11,8 +11,31 @@ describe('Teste da tela de pesquisa', () => {
     cy.scrollTo("top")
   })
 
-  it('Procurar por uma musica', () => {
-    cy.get("[data-testid='campoBusca']")
+  it('Procurar por uma musica e toca-la', () => {
+    cy.intercept('GET', 'https://api.spotify.com/v1/search*').as('searchResults');
+
+    cy.get("[data-testid='campoBusca']").type("Mina do Condomínio").then(() => {
+    
+    //   cy.wait('@searchResults');
+
+    // cy.get("[aria-label='music-item']").contains('Mina do Condomínio').first().click();
+
+    cy.scrollTo("top")
+    })
   });
-})
+
+  // it('Clicar no primeiro card com o texto exato', () => {
+    //cy.get("[aria-label='music-item']").contains(/^(Mina do Condomínio)/i).click
+    //cy.get("[aria-label='music-item']").filter(":contains('Mina do Condomínio')").click()
+  // });
+
+  it('Clicou no botao de curtir', async () => {
+
+    cy.wait(1500)
+
+    cy.get("[aria-label='music-item']").filter(":contains('Mina do Condomínio')").then((item) => {
+      cy.wrap(item).find("[data-testid='icon-button").click()
+    })
+  });
+})  
 
