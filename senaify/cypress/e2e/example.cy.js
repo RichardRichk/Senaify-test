@@ -16,9 +16,9 @@ describe('Teste da tela de pesquisa', () => {
 
     cy.get("[data-testid='campoBusca']").type("Mina do Condomínio").then(() => {
     
-    //   cy.wait('@searchResults');
+      cy.wait('@searchResults');
 
-    // cy.get("[aria-label='music-item']").contains('Mina do Condomínio').first().click();
+    cy.get("[aria-label='music-item']").contains('Mina do Condomínio').first().click();
 
     cy.scrollTo("top")
     })
